@@ -14,20 +14,22 @@
 import { Clock } from '../class-clock/clock.js';
 import { fileURLToPath } from 'url';
 
+/** @desc Función main para probar el funcionamiento de la clase Clock*/
 function main() {
   let clockOne = new Clock(0, 0);
   let clockTwo = new Clock(12, 35);
   let clockThree = new Clock(23, 59);
 
-  console.log(clockOne.toString());
-  console.log(clockTwo.toString());
-  console.log(clockThree.toString());
+  console.log('Método toString: ');
+  console.log('  ', clockOne.toString());
+  console.log('  ', clockTwo.toString());
+  console.log('  ', clockThree.toString());
 
-  clockOne.addMinutes(50); console.log(clockOne.toString());
-  clockOne.addMinutes(50); console.log(clockOne.toString());
-  clockOne.subtractMinutes(250); console.log(clockOne.toString());
-
-  clockThree.addMinutes(1441); console.log(clockThree.toString());
+  console.log('Suma y resta de minutos:');
+  clockOne.addMinutes(50); console.log('  ', clockOne.toString());
+  clockOne.addMinutes(50); console.log('  ', clockOne.toString());
+  clockOne.subtractMinutes(250); console.log('  ', clockOne.toString());
+  clockThree.addMinutes(1441); console.log('  ', clockThree.toString());
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
