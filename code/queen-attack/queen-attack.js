@@ -46,7 +46,7 @@ export class QueenAttack {
       stringifiedRow = this.BOARD[row].join(' ');
       if (row !== 7) stringifiedRow += '\n';
       stringifiedBoard += stringifiedRow;
-    }console.log(stringifiedBoard);
+    }
     return(stringifiedBoard);
   }
 
