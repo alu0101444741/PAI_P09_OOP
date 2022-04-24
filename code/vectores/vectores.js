@@ -9,10 +9,10 @@
  * @desc Program to test Vector3D class functionalities.
 */
 'use strict';
-import { Vector3D } from './vector3d.js';
+import { Vector3D } from '../class-vector3d/vector3d.js';
 import { fileURLToPath } from 'url';
 
-/** @desc Función main */
+/** @desc Función main para probar el funcionamiento de la clase Vector3D*/
 function main() {
   let vector = new Vector3D(1, 0, 1);
   let vector2 = new Vector3D(0, 1, 0);
