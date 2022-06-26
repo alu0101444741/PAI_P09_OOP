@@ -40,7 +40,7 @@ export class Vector3D {
   * @param {Vector3D} otherVector - instancia de la clase Vector3D
   * @return {Vector3D} instancia de la clase Vector3D con la suma resultante.
   */
-   add (otherVector) {
+   add(otherVector) {
     if (!otherVector instanceof Vector3D) {
       throw new Error('No se ha proporcionado un objeto de la clase Vector3D.');
     }
@@ -52,7 +52,7 @@ export class Vector3D {
   * @param {Number} number - número real
   * @return {Vector3D} instancia de la clase Vector3D con la multiplicación resultante.
   */
-  multiplyByNumber (number) {
+  multiplyByNumber(number) {
     let theNumber = Number(number);
     if (Number.isNaN(theNumber)) {
       throw new Error('No se ha proporcionado un número.');
@@ -65,7 +65,7 @@ export class Vector3D {
   * @param {Vector3D} otherVector - instancia de la clase Vector3D
   * @return {Number} multiplicación resultante.
   */
-  productOfTwoVectors (otherVector) {
+  productOfTwoVectors(otherVector) {
     if (!otherVector instanceof Vector3D) {
       throw new Error('No se ha proporcionado un objeto de la clase Vector3D.');
     }
@@ -76,7 +76,7 @@ export class Vector3D {
   * @desc Método para calcular el módulo del vector.
   * @return {Number} cálculo resultante.
   */
-  module () {
+  module() {
     return(Math.sqrt(Math.pow(this.#coordinateX,2) + Math.pow(this.#coordinateY,2) + Math.pow(this.#coordinateZ,2)));
   }
 
@@ -84,9 +84,22 @@ export class Vector3D {
   * @desc Método para normalizar el vector.
   * @return {Vector3D} vector normalizado
   */
-  normalize () {
+  normalize() {
     let module = this.module();
     return(new Vector3D(this.#coordinateX / module, this.#coordinateY / module, this.#coordinateZ / module));
+  }
+
+  /**
+  * @desc Método para calcular ángulo en grados formado por dos vectores.
+  * @param {Vector3D} otherVector - instancia de la clase Vector3D
+  * @return {Number} grados del ángulo formado.
+  */
+  angle(otherVector) {
+    if (!otherVector instanceof Vector3D) {
+      throw new Error('No se ha proporcionado un objeto de la clase Vector3D.');
+    }
+    let radians = Math.acos((this.productOfTwoVectors(otherVector)) / (this.module() * otherVector.module()));
+    return ((radians * 180.0) / Math.PI);
   }
 
   /**
